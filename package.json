@@ -1,0 +1,40 @@
+{
+  "name": "tone-piano",
+  "private": false,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/tone-piano.umd.cjs",
+  "module": "./dist/tone-piano.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:lib": "vite build && tsc",
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.16",
+    "@tonejs/midi": "^2.0.28",
+    "tailwindcss": "^4.1.16",
+    "tone": "^15.1.22"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
