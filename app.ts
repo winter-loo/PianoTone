@@ -1,6 +1,6 @@
 import * as Tone from "tone";
 import { Midi } from "@tonejs/midi";
-import { Piano } from "./src/index";
+import { Piano, getMinmaxNotes } from "./src/index";
 
 const KEYBOARD_NOTES = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"];
 const VOLUME_COMPONENTS = ["strings", "harmonics", "pedal", "keybed"] as const;
@@ -22,11 +22,9 @@ declare global {
 // for local development, you can download the audio files from the above repository
 const piano = new Piano({
   url: "https://tambien.github.io/Piano/audio/",
-  release: true,
-  pedal: true,
   velocities: 3,
-  minNote: 27,
-  maxNote: 97,
+  pedal: false,
+  ...getMinmaxNotes(4, 5),
 }).toDestination();
 
 const volumeParams: Record<VolumeComponent, Tone.Param<"decibels">> = {
